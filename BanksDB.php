@@ -2,13 +2,23 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
-    $servername = "localhost";
-    $username = "root";
-    $dbname = "demi_db";
-    $password = "";
+    // $servername = "localhost";
+    // $username = "root";
+    // $dbname = "demi_db";
+    // $password = "";
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    // // Create connection
+    // $conn = new mysqli($servername, $username, $password, $dbname);
+
+
+$host = getenv("MYSQLHOST");
+$user = getenv("MYSQLUSER");
+$password = getenv("MYSQLPASSWORD");
+$db = getenv("MYSQLDATABASE");
+$port = getenv("MYSQLPORT");
+
+$conn = new mysqli($host, $user, $password, $db, $port);
+
 
     // Check connection
     if ($conn->connect_error) {

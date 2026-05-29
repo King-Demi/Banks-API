@@ -1,12 +1,24 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-$servername = "localhost";
-    $username = "root";
-    $dbname = "demi_db";
-    $password = "";
+// $servername = "localhost";
+//     $username = "root";
+//     $dbname = "demi_db";
+//     $password = "";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+//     $conn = new mysqli($servername, $username, $password, $dbname);
+
+
+$host = getenv("MYSQLHOST");
+$user = getenv("MYSQLUSER");
+$password = getenv("MYSQLPASSWORD");
+$db = getenv("MYSQLDATABASE");
+$port = getenv("MYSQLPORT");
+
+$conn = new mysqli($host, $user, $password, $db, $port);
+
+
+
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
