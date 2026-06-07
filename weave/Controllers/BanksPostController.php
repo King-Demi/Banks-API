@@ -1,28 +1,31 @@
 <?php
 
 namespace Weave\Controllers;
-use Lacebox\Sole\Cobble\ConnectionManager;
 
-$pdo = ConnectionManager::getConnection();
+use Lacebox\Sole\Cobble\QueryBuilder;
+
+
 
 class BanksPostController
 {
 public function banksPost()
-    {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            $name = $_POST['name'];
-   $code = $_POST['sort_code'];
-   $address = $_POST['address'];
-   $nip_code = $_POST['NIP_code'];
-   
-   $sql = "INSERT INTO banks (name, sort_code, address, NIP_code) VALUES ('$name', '$code', '$address', '$nip_code')";
-    
-    if ($pdo->query($sql) === TRUE) {
-        return ["New record created successfully"];
-    } else {
-        return ["Error: " . $sql . "<br>" . $pdo->error];
-    }
+    {
+        $name = $_POST['name'];
+        $sort_code = $_POST['sort_code'];
+        $address = $_POST['address'];
+        $NIP_code = $_POST['NIP_code'];
+
+
+
+       $newId = QueryBuilder::table('banks')
+    ->insertGetId([
+        
+        'name'    => $name,
+        'sort_code' => $sort_code ,
+        'address' => $address ,
+        'NIP_code' => $NIP_code
+    ]);
 
 
 
@@ -32,15 +35,6 @@ public function banksPost()
 
 
 
-
-else {
-    return [ " Just give me the info in a post request"];
-    exit;
-
-
-
-        }
-    }
 
 }
     

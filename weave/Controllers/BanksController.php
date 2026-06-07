@@ -6,8 +6,7 @@ class BanksController
 {
 public function banks()
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-
+       
 
 $banks = [
     [
@@ -118,32 +117,7 @@ $banks = [
 ];
 
 
-
-
-
- header('Content-Type: application/json; charset=utf-8');
- return [ json_encode($banks)];
-
 }
 
-
-
-
-
-
-
-else {
-     return [ " I'm not collecting any info at the moment"];
-   
-}
-
-
-
-
-
-
-
-
-
-    }
+    
 }
