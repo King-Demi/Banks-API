@@ -15,11 +15,11 @@ return [
             'database_file' => env('DB_FILE', __DIR__ . '/../database.sqlite')
         ],
         'mysql' => [
-            'host'     => env('DB_HOST', 'getenv("MYSQLHOST")'),
-            'port'     => env('DB_PORT', 'getenv("MYSQLPORT")'),
-            'database' => env('DB_DATABASE', 'getenv("MYSQLDATABASE")'),
-            'username' => env('DB_USERNAME', 'getenv("MYSQLUSER")'),
-            'password' => env('DB_PASSWORD', 'getenv("MYSQLPASSWORD")'),
+            'host'     => env('DB_HOST', 'zephyr.proxy.rlwy.net'),
+            'port'     => env('DB_PORT', 26427),
+            'database' => env('DB_DATABASE', 'railway'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', 'KyFwjWtSMXzrUDjXycBxCPyGaNjwHiAj'),
             'charset'  => env('DB_CHARSET', 'utf8mb4'),
             'collation'=> env('DB_COLLATION', 'utf8mb4_unicode_ci'),
         ],
